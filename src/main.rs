@@ -6,9 +6,9 @@ use structopt::StructOpt;
 
 #[derive(Debug, StructOpt)]
 #[structopt(setting(ColoredHelp))]
-pub struct Args {
+struct Args {
     #[structopt(flatten)]
-    pub verbose: Verbosity,
+    verbose: Verbosity,
 
     /// Output the traditional greeting message "Hello, World!".
     #[structopt(short, long)]
@@ -19,7 +19,7 @@ pub struct Args {
     greeting: String,
 }
 
-pub fn init(args: &Args) {
+fn init(args: &Args) {
     if let Some(level) = args.verbose.log_level() {
         env_logger::builder()
             .filter_level(level.to_level_filter())
