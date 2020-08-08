@@ -1,6 +1,6 @@
 # Hello Rust
 
-This is a Rust program that prints "Hello, World!".
+This is the Rust program that prints "Hello, World!".
 
 ## Features
 
