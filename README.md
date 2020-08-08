@@ -1,3 +1,11 @@
-# cli-template
+# Hello Rust
 
-This is a template project for creating CLI programs with Rust.
+This is a Rust program that prints "Hello, World!".
+
+## Features
+
+- Prints "Hello, World!"
+- Prints any texts passed by command line option
+- Prints version
+- You can learn third party libraries of Rust
+- You can use this project as a template for implementing CLI program
