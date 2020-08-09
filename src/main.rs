@@ -23,6 +23,7 @@ fn init(args: &Args) {
     if let Some(level) = args.verbose.log_level() {
         env_logger::builder()
             .filter_level(level.to_level_filter())
+            .write_style(env_logger::fmt::WriteStyle::Always)
             .init();
     }
 }
@@ -31,8 +32,10 @@ fn hello(args: &Args) {
     debug!("{:?}", args);
 
     if args.traditional {
+        debug!("Printing traditional greeting");
         println!("hello, world");
     } else {
+        debug!("Printing non-traditional greeting");
         println!("{}", args.greeting);
     }
 }
