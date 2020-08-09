@@ -10,12 +10,12 @@ struct Args {
     #[structopt(flatten)]
     verbose: Verbosity,
 
-    /// Output the traditional greeting message "Hello, World!".
+    /// Use traditional greeting
     #[structopt(short, long)]
     traditional: bool,
 
-    /// Output text instead of the default greeting.
-    #[structopt(short, long, default_value = "Hello, World!")]
+    /// Use TEXT as the greeting message
+    #[structopt(short, long, value_name = "TEXT", default_value = "Hello, world!")]
     greeting: String,
 }
 
@@ -27,17 +27,21 @@ fn init(args: &Args) {
     }
 }
 
-fn main() -> Result<()> {
-    let args = Args::from_args();
-    init(&args);
-
+fn hello(args: &Args) {
     debug!("{:?}", args);
 
     if args.traditional {
-        println!("Hello, World!");
+        println!("hello, world");
     } else {
         println!("{}", args.greeting);
     }
+}
+
+fn main() -> Result<()> {
+    let args = Args::from_args();
+
+    init(&args);
+    hello(&args);
 
     Ok(())
 }
